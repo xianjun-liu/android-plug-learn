@@ -23,9 +23,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.util.Log;
-
 import dalvik.system.DexFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -357,7 +355,7 @@ public final class MultiDex {
      * @return a field object
      * @throws NoSuchFieldException if the field cannot be located
      */
-    private static Field findField(Object instance, String name) throws NoSuchFieldException {
+    public static Field findField(Object instance, String name) throws NoSuchFieldException {
         for (Class<?> clazz = instance.getClass(); clazz != null; clazz = clazz.getSuperclass()) {
             try {
                 Field field = clazz.getDeclaredField(name);
@@ -385,7 +383,7 @@ public final class MultiDex {
      * @return a method object
      * @throws NoSuchMethodException if the method cannot be located
      */
-    private static Method findMethod(Object instance, String name, Class<?>... parameterTypes)
+    public static Method findMethod(Object instance, String name, Class<?>... parameterTypes)
             throws NoSuchMethodException {
         for (Class<?> clazz = instance.getClass(); clazz != null; clazz = clazz.getSuperclass()) {
             try {
@@ -413,7 +411,7 @@ public final class MultiDex {
      * @param fieldName the field to modify.
      * @param extraElements elements to append at the end of the array.
      */
-    private static void expandFieldArray(Object instance, String fieldName,
+    public static void expandFieldArray(Object instance, String fieldName,
             Object[] extraElements) throws NoSuchFieldException, IllegalArgumentException,
             IllegalAccessException {
         Field jlrField = findField(instance, fieldName);
@@ -532,7 +530,7 @@ public final class MultiDex {
     /**
      * Installer for platform versions 14, 15, 16, 17 and 18.
      */
-    private static final class V14 {
+    public static final class V14 {
 
         private static void install(ClassLoader loader, List<File> additionalClassPathEntries,
                 File optimizedDirectory)
@@ -553,7 +551,7 @@ public final class MultiDex {
          * A wrapper around
          * {@code private static final dalvik.system.DexPathList#makeDexElements}.
          */
-        private static Object[] makeDexElements(
+        public static Object[] makeDexElements(
                 Object dexPathList, ArrayList<File> files, File optimizedDirectory)
                         throws IllegalAccessException, InvocationTargetException,
                         NoSuchMethodException {
