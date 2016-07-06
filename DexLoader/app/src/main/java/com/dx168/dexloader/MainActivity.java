@@ -19,6 +19,12 @@ public class MainActivity extends Activity {
             if (clazz != null) {
                 Toast.makeText(this,clazz.toString(),Toast.LENGTH_LONG).show();
             }
+
+            clazz = Class.forName("com.example.hellodemo.App");
+
+            if (clazz != null) {
+                Toast.makeText(this,clazz.toString(),Toast.LENGTH_LONG).show();
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

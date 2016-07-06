@@ -32,6 +32,7 @@ public class App extends Application {
         Log.d(TAG,classLoader.toString());
 
         installDex();
+        installDex1();
 
         Log.d(TAG,classLoader.toString());
     }
@@ -69,6 +70,31 @@ public class App extends Application {
             Object dexPathList = pathListField.get(getClassLoader());
 
             Object[] dexElements =  MultiDex.V14.makeDexElements(dexPathList, new ArrayList<File>(dexFileList), dexDir);
+            MultiDex.expandFieldArray(dexPathList, "dexElements", dexElements);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void installDex1() {
+        try {
+            //创建 /data/data/com.example.hellodemo/code_cache/secondary-dexes
+            File dexDir = getFilesDir();
+
+            File dexFile = new File(dexDir,"hellosign1.apk");
+            copyDexFiles("hellosign1.apk",dexFile);
+
+            List dexFileList = new ArrayList();
+            dexFileList.add(dexFile);
+
+            Field pathListField = MultiDex.findField(getClassLoader(), "pathList");
+            Object dexPathList = pathListField.get(getClassLoader());
+
+            Object[] dexElements =  MultiDex.V14.makeDexElements(dexPathList, new ArrayList<File>(dexFileList), dexDir);
+
+            //Object dexElement = dexElements[0];
+            //Field dexFileField = MultiDex.findField(dexElement,"dexFile");
+            //dexFileField.set(dexElement,new DexFile(dexFile));
             MultiDex.expandFieldArray(dexPathList, "dexElements", dexElements);
         } catch (Throwable e) {
             e.printStackTrace();
