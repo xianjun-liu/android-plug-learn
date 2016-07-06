@@ -11,6 +11,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getResources()
 
         try {
             Class clazz = Class.forName("com.example.hellodemo.UserInfo");
