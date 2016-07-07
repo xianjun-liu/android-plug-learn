@@ -11,7 +11,6 @@ import android.os.IBinder;
 import android.util.Log;
 import net.mobctrl.hostapk.AssetsManager;
 import java.io.File;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -38,12 +37,9 @@ public class DxInstrumentation extends Instrumentation {
             //替换resource
             Resources resources = getBundleResource(App.context,new File(apkDir,"plug1.apk").getAbsolutePath());
             try {
-                Context context = activity.getApplicationContext();
-                Class clazz = context.getClass();
-                Field field = clazz.getDeclaredField("mResources");
-                field.setAccessible(true);
-                field.set(activity,resources);
-            } catch (Exception e) {
+                Method method = activity.getClass().getMethod("setResources",Resources.class);
+                method.invoke(activity,resources);
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
         }
@@ -79,8 +75,6 @@ public class DxInstrumentation extends Instrumentation {
         }
         return newIntent;
     }
-
-
 
     public static Resources getBundleResource(Context context, String apkPath){
         AssetManager assetManager = createAssetManager(apkPath);

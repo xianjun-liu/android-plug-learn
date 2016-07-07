@@ -1,6 +1,8 @@
 package com.tong.plug1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends BaseActivity {
 
@@ -9,12 +11,9 @@ public class MainActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_main);
-//		TextView tv = new TextView(this);
-//		tv.setText("哈哈哈哈哈");
-//		tv.setBackgroundColor(getResources().getColor(android.R.color.black));
-//
-//		tv.setTextColor(getResources().getColor(android.R.color.white));
-//
-//		setContentView(tv,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+	}
+
+	public void start(View v) {
+		startActivity(new Intent(this,Plug1Activity.class));
 	}
 }
