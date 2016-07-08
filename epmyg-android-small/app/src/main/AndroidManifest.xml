@@ -20,6 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.dx168.epmyg.app.main.activity.MainActivity">
+
+            <intent-filter>
+                <action android:name="com.dx168.epmyg.app.chat.activity.MainActivity" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

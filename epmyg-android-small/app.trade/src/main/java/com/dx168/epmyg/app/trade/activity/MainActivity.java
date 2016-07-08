@@ -2,7 +2,7 @@ package com.dx168.epmyg.app.main.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import com.dx168.epmyg.app.chat.R;
+import com.dx168.epmyg.app.trade.R;
 
 public class MainActivity extends Activity {
 
