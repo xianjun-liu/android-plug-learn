@@ -1,4 +1,4 @@
-package com.dx168.epmyg.app.main.activity;
+package com.dx168.epmyg.app.trade.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

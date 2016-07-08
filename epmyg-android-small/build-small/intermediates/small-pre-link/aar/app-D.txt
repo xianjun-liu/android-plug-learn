@@ -1,7 +1,0 @@
-com.android.support:design:24.0.0
-net.wequick.small:small:1.0.0
-com.android.support:appcompat-v7:24.0.0
-com.android.support:recyclerview-v7:24.0.0
-com.android.support:support-vector-drawable:24.0.0
-com.android.support:animated-vector-drawable:24.0.0
-com.android.support:support-v4:24.0.0

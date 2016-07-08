@@ -1,4 +1,4 @@
-package com.dx168.epmyg.app.main;
+package com.dx168.epmyg.app.chat;
 
 import android.app.Application;
 import android.util.Log;
