@@ -17,4 +17,11 @@
         android:textSize="14sp"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="客服"
+        android:onClick="startIM"
+        />
 </FrameLayout>
